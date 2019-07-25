@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Webapp</title>
+  <base href="/">
+
+  <!--<link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css">-->
+  <link rel="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.2/leaflet.css">
+
+  <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+          integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+          crossorigin=""></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <link href="assets/css/fontawesome.css" rel="stylesheet">
+  <link href="assets/css/brands.css" rel="stylesheet">
+  <link href="assets/css/solid.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="assets/css/solid.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script src="assets/js/socket.io.js"></script>
+  <link rel="stylesheet" type="text/css" href="./assets/css/animate.css">
+  <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+</head>
+<body>
+<div id="searchForm" class="animated">
+
+  <form class="p-4">
+    <div class="row">
+      <div class="col-md-12">
+        <label for="selectBus">Find bus</label>
+        <select class="form-control" id="selectBus">
+          <option value="bus1">Bus 1</option>
+          <option value="bus2">Bus 2</option>
+        </select>
+        <app-filter>
+        </app-filter>
+      </div>
+    </div>
+  </form>
+</div>
+<div id="search" onclick="showForm()">
+  <i class="fas fa-arrow-right"></i>
+  <i class="fas fa-arrow-left"></i>
+</div>
+<app-root>
+</app-root>
+
+  <script>
+    let visible = false;
+
+    function showForm() {
+      const searchForm = document.getElementById('searchForm');
+      const mapContainer = document.getElementById('map');
+
+      if(visible) {
+        searchForm.style.width = '0%';
+        mapContainer.style.width = '100%'
+      } else {
+        searchForm.style.width = '20%';
+        mapContainer.style.width = '80%'
+      }
+      visible = !visible
+    }
+  </script>
+</body>
+</html>
